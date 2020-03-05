@@ -45,7 +45,17 @@ body {
   grid-area: main;
 }
 
-.main-content img {
+.big-img {
   height: 200px;
   width: 100%;
+}
+
+.small-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.profile-info {
+  display: flex;
 }
