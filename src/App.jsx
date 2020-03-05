@@ -1,9 +1,16 @@
 import React from 'react';
 import './App.css';
+import Header from './components/Header'
+import MainContent from './components/MainContent'
+import LeftSide from './components/LeftSide'
 
 function App() {
   return (
-    <h1>Hi</h1>
+    <div>
+      <Header />
+      <LeftSide />
+      <MainContent />
+    </div>
   );
 }
 
