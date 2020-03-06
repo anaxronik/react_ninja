@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './Profile.module.css';
+import MyPosts from './MyPosts/MyPosts';
 
 const Profile = () => {
     return (
@@ -19,24 +20,7 @@ const Profile = () => {
                     <div>web site</div>
                 </div>
             </div>
-            <div className="posts">
-                <div>
-                    My posts
-            </div>
-
-                <div>
-                    New post
-              <form action="">
-                        <input type="text" />
-                        <button />
-                    </form>
-                </div>
-                <div>
-                    <div>Post 1</div>
-                    <div>Post 2</div>
-                    <div>Post 3</div>
-                </div>
-            </div>
+            <MyPosts />
         </div >
     )
 }
