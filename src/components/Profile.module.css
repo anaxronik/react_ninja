@@ -1,0 +1,18 @@
+.block {
+    grid-area: main;
+}
+
+.bigimg {
+    height: 200px;
+    width: 100%;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.info {
+    display: flex;
+}

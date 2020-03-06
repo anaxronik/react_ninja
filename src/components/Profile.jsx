@@ -1,15 +1,15 @@
 import React from 'react';
-// import './App.css';
+import css from './Profile.module.css';
 
 const Profile = () => {
     return (
-        <div className="main-content block">
+        <div className={css.block}>
             <div>
-                <img className='big-img' src="https://pix10.agoda.net/hotelImages/5647641/-1/45ee96c8c2b177ffcd99818b6b6387f0.jpg?s=1024x768" alt="" />
+                <img className={css.bigimg} src="https://pix10.agoda.net/hotelImages/5647641/-1/45ee96c8c2b177ffcd99818b6b6387f0.jpg?s=1024x768" alt="" />
             </div>
-            <div className="profile-info">
+            <div className={css.info}>
                 <div>
-                    <img className="small-avatar" src="https://static.mk.ru/upload/entities/2019/05/08/00/articles/detailPicture/c7/b5/08/6e/5dda626cb409b1fa6942c29040609e17.jpg" alt="" />
+                    <img className={css.avatar} src="https://static.mk.ru/upload/entities/2019/05/08/00/articles/detailPicture/c7/b5/08/6e/5dda626cb409b1fa6942c29040609e17.jpg" alt="" />
                 </div>
                 <div>
                     <div> Dmitriy K</div>
@@ -37,7 +37,7 @@ const Profile = () => {
                     <div>Post 3</div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
