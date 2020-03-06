@@ -3,6 +3,10 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <p>Header</p>
+        <header className="header">
+            <img className='logo-img' src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Wikinews-logo.png" alt="" />
+        </header>
     )
 }
+
+export default Header
