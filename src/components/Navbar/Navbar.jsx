@@ -4,7 +4,7 @@ import css from './Navbar.module.css'
 const Navbar = () => {
     return (
         <nav className={css.nav}>
-            <div className={css.item}>
+            <div className={`${css.item} ${css.active}`}>
                 <a href="/profile">Profile</a>
             </div >
             <div className={css.item}>
