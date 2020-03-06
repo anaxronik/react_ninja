@@ -1,11 +1,12 @@
 import React from 'react';
+import css from './NewPost.module.css';
 
 const NewPost = () => {
     return (
-        <div>
+        <div className={css.block}>
             <h4>New post</h4>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <button>Send</button>
+            <textarea className={css.textarea}></textarea>
+            <button className={css.button}>Send</button>
         </div>
     );
 }

@@ -4,21 +4,21 @@ import css from './Navbar.module.css'
 const Navbar = () => {
     return (
         <nav className={css.nav}>
-            <div className={`${css.item} ${css.active}`}>
-                <a href="/profile">Profile</a>
+            <div className={`${css.item}`}>
+                <a href="/profile">Профиль</a>
             </div >
             <div className={css.item}>
-                <a href="/messages">Messages</a>
+                <a href="/dialogs">Сообщения</a>
             </div>
             <div className={css.item}>
-                <a href="/news">News</a>
+                <a href="/news">Новости</a>
             </div>
             <div className={css.item}>
-                <a href="/music">Musics</a>
+                <a href="/music">Музыка</a>
             </div>
             <div className={css.item}>
-                <a href="/settings">Settings</a
-                ></div>
+                <a href="/settings">Настройки</a>
+            </div>
         </nav >
     )
 }

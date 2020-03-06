@@ -1,14 +1,11 @@
 import React from 'react';
-import css from './MyPosts.module.css'
 import Post from './Post/Post';
-import name from './NewPost/NewPost';
 import NewPost from './NewPost/NewPost';
 
 const MyPosts = () => {
     return (
         <div>
             <div>
-                <h3>My posts</h3>
                 <NewPost />
             </div>
             <div>
