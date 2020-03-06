@@ -2,4 +2,40 @@
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
+    display: flex;
+}
+
+.dialogs {
+    /* padding: 20px; */
+    /* background-color: #1ff; */
+    /* border-right: 5px solid #EDF2F6; */
+}
+
+.dialog {
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+.dialog:hover {
+    background: #EDF2F6;
+}
+
+.active {
+    background: #EDF2F6;
+    text-align: right;
+    font-weight: bold;
+    padding-right: 0;
+}
+
+.messages {
+    padding: 20px;
+    background: #EDF2F6;
+    border-radius: 5px;
+}
+
+.message {
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
