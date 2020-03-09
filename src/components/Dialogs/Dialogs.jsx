@@ -23,8 +23,8 @@ const Message = (props) => {
 
 
 const Dialogs = (props) => {
-    let dialogsElement = props.dialogs.map(dialog => <Dialog text={dialog.name} id={dialog.id} />);
-    let messagesElement = props.messages.map(message => <Message text={message.text} />)
+    let dialogsElement = props.state.dialogs.map(dialog => <Dialog text={dialog.name} id={dialog.id} />);
+    let messagesElement = props.state.messages.map(message => <Message text={message.text} />)
 
     return (
         <div className={css.block}>
