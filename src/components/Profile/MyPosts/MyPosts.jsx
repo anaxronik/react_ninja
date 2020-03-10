@@ -6,11 +6,14 @@ const MyPosts = (props) => {
 
 
     let PostsElement = props.posts.map(post => <Post text={post.text} likesCount={post.likesCount} />)
+    // let PostsElement = posts.reverse()
 
     return (
         <div>
-            <NewPost />
-            {PostsElement}
+            <NewPost addPost={props.addPost}
+                newPostText={props.newPostText}
+                updateNewPostText={props.updateNewPostText} />
+            {PostsElement.reverse()}
         </div>
     );
 }
