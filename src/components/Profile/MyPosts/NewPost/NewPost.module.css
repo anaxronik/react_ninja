@@ -24,3 +24,8 @@
     margin-top: 20px;
     color: white;
 }
+
+.button:hover {
+    background-color: red;
+    color: black;
+}

@@ -4,5 +4,4 @@ import App from './App';
 import state from './redux/state';
 
 
-
 ReactDOM.render(<App appState={state} />, document.getElementById('root'));
