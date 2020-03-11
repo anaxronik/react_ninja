@@ -17,11 +17,16 @@ const NewPost = (props) => {
     return (
         <div className={css.block}>
             <h4>New post</h4>
-            <textarea className={css.textarea}
+            <textarea
+                className={css.textarea}
                 ref={newPostElement}
                 value={props.newPostText}
-                onChange={onChangeTextFields} />
-            <button className={css.button} onClick={addPost}>Send</button>
+                onChange={onChangeTextFields}
+            />
+            <button
+                className={css.button}
+                onClick={addPost}
+            >Send</button>
         </div>
     );
 }

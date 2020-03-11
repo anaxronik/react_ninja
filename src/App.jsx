@@ -18,7 +18,7 @@ function App(props) {
         <Navbar />
         <Route path='/profile' render={() =>
           <Profile
-            state={props.appState.profilePage}
+            state={props.state.profilePage}
             addPost={props.addPost}
             updateNewPostText={props.updateNewPostText}
           />} />
