@@ -80,25 +80,28 @@ let store = {
     getState() {
         return this._state
     },
+    subscribe(observer) {
+        this.rerenderEntireTree = observer
+    },
+
     rerenderEntireTree() {
         console.log('state changed');
     },
-    addPost() {
-        let newPost = {
-            id: 5,
-            likesCount: 0,
-            text: this._state.profilePage.newPostText,
+
+    dispatch(action) {
+        if (action.type == 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                likesCount: 0,
+                text: this._state.profilePage.newPostText,
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ''
+            this.rerenderEntireTree(this._state)
+        } else if (action.type == 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.text
+            this.rerenderEntireTree(this._state)
         }
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this.rerenderEntireTree(this._state)
-    },
-    updateNewPostText(text) {
-        this._state.profilePage.newPostText = text
-        this.rerenderEntireTree(this._state)
-    },
-    subscribe(observer) {
-        this.rerenderEntireTree = observer
     }
 }
 export default store

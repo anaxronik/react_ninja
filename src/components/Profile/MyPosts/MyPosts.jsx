@@ -10,9 +10,10 @@ const MyPosts = (props) => {
 
     return (
         <div>
-            <NewPost addPost={props.addPost}
+            <NewPost
                 newPostText={props.newPostText}
-                updateNewPostText={props.updateNewPostText} />
+                dispatch={props.dispatch}
+            />
             {PostsElement.reverse()}
         </div>
     );
