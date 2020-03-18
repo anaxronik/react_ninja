@@ -11,6 +11,7 @@ import Settings from './components/Settings/Settings';
 
 
 function App(props) {
+  // console.log(props);
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -21,7 +22,7 @@ function App(props) {
             state={props.state.profilePage}
             dispatch={props.dispatch}
           />} />
-        <Route path='/dialogs' render={() => <Dialogs state={props.appState.dialogsPage} />} />
+        <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage} />} />
         <Route path='/news' render={() => <News />} />
         <Route path='/music' render={() => <Music />} />
         <Route path='/settings' render={() => <Settings />} />
