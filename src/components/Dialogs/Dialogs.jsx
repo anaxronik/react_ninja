@@ -1,13 +1,16 @@
 import React from 'react';
 import css from './Dialogs.module.css';
 import { NavLink } from 'react-router-dom';
-import { sendMessageCreator, updateNewMessageTextCreator } from '../../redux/dialogsReducer';
 
 
 const Dialog = (props) => {
     let path = '/dialogs/' + props.id
     return (
-        <NavLink to={path} className={css.dialog} activeClassName={css.active} >
+        <NavLink
+            to={path}
+            className={css.dialog}
+            activeClassName={css.active}
+        >
             {props.text}
         </NavLink >
     );
@@ -23,43 +26,52 @@ const Message = (props) => {
 }
 
 
-const Dialogs = (props) => {
-    // let state = props.store.getState().dialogsPage
-    let dialogsElement = props.state.dialogs.map(dialog => <Dialog text={dialog.name} id={dialog.id} />);
-    let messagesElement = props.state.messages.map(message => <Message text={message.text} />)
-    let newMessageText = props.state.newMessageText
+const NewMessageBlock = (props) => {
+    let newMessageText = props.newMessageText
 
     let onSendMessageClick = () => {
-        props.dispatch(sendMessageCreator())
+        props.onSendMessageClick()
     }
 
     let onNewMessageChange = (event) => {
         let text = event.target.value
-        props.store.dispatch(updateNewMessageTextCreator(text))
+        props.onNewMessageChange(text)
     }
+
+    return (
+        <div className={css.newMessageBox}>
+            <div>
+                <textarea
+                    placeholder='Введите ваше сообщение'
+                    value={newMessageText}
+                    onChange={onNewMessageChange}
+                />
+            </div>
+            <div className={css.newMessageButtonBox}>
+                <button onClick={onSendMessageClick}>Отправить</button>
+            </div>
+        </div>
+    );
+}
+
+const Dialogs = (props) => {
+    let dialogsElement = props.dialogs.map(dialog => <Dialog text={dialog.name} id={dialog.id} />);
+    let messagesElement = props.messages.map(message => <Message text={message.text} />)
 
     return (
         <div className={css.block}>
             <div className={css.dialogs}>
-                <h2>ДИАЛОГИ</h2>
                 {dialogsElement}
             </div>
 
             <div className={css.messages}>
                 {messagesElement}
 
-                <div className={css.newMessageBox}>
-                    <div>
-                        <textarea
-                            placeholder='Введите ваше сообщение'
-                            value={newMessageText}
-                            onChange={onNewMessageChange}
-                        />
-                    </div>
-                    <div className={css.newMessageButtonBox}>
-                        <button onClick={onSendMessageClick}>Отправить</button>
-                    </div>
-                </div>
+                <NewMessageBlock
+                    newMessageText={props.newMessageText}
+                    onSendMessageClick={props.onSendMessageClick}
+                    onNewMessageChange={props.onNewMessageChange}
+                />
             </div>
         </div>
     );

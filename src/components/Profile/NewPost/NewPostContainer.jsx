@@ -6,7 +6,6 @@ import NewPost from './NewPost';
 
 const NewPostContainer = (props) => {
     let state = props.store.getState()
-
     let newPostText = state.profilePage.newPostText
 
     let onPostChanged = (text) => {
