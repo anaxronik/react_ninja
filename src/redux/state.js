@@ -79,7 +79,8 @@ let store = {
                 text: 'Pariatur in veniam reprehenderit laborum minim adipisicing id occaecat est excepteur id occaecat id irure.'
             }
             ]
-        }
+        },
+        sidabar: {},
     },
     getState() {
         return this._state
