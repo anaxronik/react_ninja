@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './Profile.module.css';
-import Posts from './Posts/Posts';
-import NewPost from './NewPost/NewPost';
+import PostsContainer from './Posts/PostsContainer';
+import NewPostContainer from './NewPost/NewPostContainer';
 
 const ProfileInfo = () => {
     return (
@@ -22,18 +22,14 @@ const ProfileInfo = () => {
 
 
 const Profile = (props) => {
-    // console.log(props);
     return (
         <div className={css.block}>
             <div>
                 <img className={css.bigimg} src="https://pix10.agoda.net/hotelImages/5647641/-1/45ee96c8c2b177ffcd99818b6b6387f0.jpg?s=1024x768" alt="" />
             </div>
             <ProfileInfo />
-            <NewPost
-                dispatch={props.dispatch}
-                newPostText={props.state.newPostText}
-            />
-            <Posts posts={props.state.posts} />
+            <NewPostContainer store={props.store} />
+            <PostsContainer store={props.store} />
         </div >
     )
 }

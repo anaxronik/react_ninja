@@ -25,7 +25,6 @@ const Posts = (props) => {
     return (
         <div>
             {PostsElement}
-            {/* <Post /> */}
         </div>
     );
 }
