@@ -1,20 +1,39 @@
 import React from 'react';
 import css from './Profile.module.css';
-import MyPosts from './MyPosts/MyPosts';
-import ProfileInfo from './ProfileInfo/ProfileInfo';
+import Posts from './Posts/Posts';
+import NewPost from './NewPost/NewPost';
+
+const ProfileInfo = () => {
+    return (
+        <div className={css.info}>
+            <div>
+                <img className={css.avatar} src="https://static.mk.ru/upload/entities/2019/05/08/00/articles/detailPicture/c7/b5/08/6e/5dda626cb409b1fa6942c29040609e17.jpg" alt="" />
+            </div>
+            <div className={css.info_block}>
+                <div>Dmitriy K</div>
+                <div>Date of Birth</div>
+                <div>City</div>
+                <div>Education</div>
+                <div>web site</div>
+            </div>
+        </div>
+    );
+}
+
 
 const Profile = (props) => {
+    // console.log(props);
     return (
         <div className={css.block}>
             <div>
                 <img className={css.bigimg} src="https://pix10.agoda.net/hotelImages/5647641/-1/45ee96c8c2b177ffcd99818b6b6387f0.jpg?s=1024x768" alt="" />
             </div>
             <ProfileInfo />
-            <MyPosts
-                posts={props.state.posts}
-                newPostText={props.state.newPostText}
+            <NewPost
                 dispatch={props.dispatch}
+                newPostText={props.state.newPostText}
             />
+            <Posts posts={props.state.posts} />
         </div >
     )
 }

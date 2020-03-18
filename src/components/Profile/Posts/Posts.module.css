@@ -1,0 +1,20 @@
+.post{
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+}
+.avatar{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+
+}
+.textblock{
+    margin-left: 20px;
+    display: block;
+}
+
+.likesCount{
+    margin-top: 20px;
+}
