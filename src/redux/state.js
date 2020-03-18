@@ -80,7 +80,7 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type == ADD_POST) {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 likesCount: 0,
@@ -89,13 +89,13 @@ let store = {
             this._state.profilePage.posts.push(newPost)
             this._state.profilePage.newPostText = ''
             this._callSubscriber(this._state)
-        } else if (action.type == UPDATE_NEW_POST_TEXT) {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.text
             this._callSubscriber(this._state)
-        } else if (action.type == UPDATE_NEW_MESSAGE_TEXT) {
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this._state.dialogsPage.newMessageText = action.text
             this._callSubscriber(this._state)
-        } else if (action.type == SEND_MESSAGE) {
+        } else if (action.type === SEND_MESSAGE) {
             let newMessage = {
                 id: 111,
                 text: this._state.dialogsPage.newMessageText,

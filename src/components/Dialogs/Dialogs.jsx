@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './Dialogs.module.css';
 import { NavLink } from 'react-router-dom';
-import { updateNewMessageText, sendMessageCreator, updateNewMessageTextCreator } from './../../redux/state';
+import { sendMessageCreator, updateNewMessageTextCreator } from './../../redux/state';
 
 
 const Dialog = (props) => {
@@ -24,7 +24,7 @@ const Message = (props) => {
 
 
 const Dialogs = (props) => {
-    let state = props.store.getState().dialogsPage
+    // let state = props.store.getState().dialogsPage
     let dialogsElement = props.state.dialogs.map(dialog => <Dialog text={dialog.name} id={dialog.id} />);
     let messagesElement = props.state.messages.map(message => <Message text={message.text} />)
     let newMessageText = props.state.newMessageText
