@@ -21,6 +21,7 @@ const Post = (props) => {
 
 const Posts = (props) => {
     let PostsElement = props.posts.map(post => <Post text={post.text} likesCount={post.likesCount} />)
+    PostsElement.reverse()
 
     return (
         <div>
