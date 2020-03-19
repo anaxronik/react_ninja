@@ -1,12 +1,13 @@
-import React from 'react';
 import Posts from './Posts';
+import { connect } from 'react-redux';
 
 
-const PostsContainer = (props) => {
-    let state = props.store.getState()
-    let posts = state.profilePage.posts
-
-    return (<Posts posts={posts} />);
+const mapStateToProps = (state) => {
+    return {
+        posts: state.profilePage.posts,
+    }
 }
+
+const PostsContainer = connect(mapStateToProps)(Posts)
 
 export default PostsContainer;
