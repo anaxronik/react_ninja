@@ -55,8 +55,8 @@ const NewMessageBlock = (props) => {
 }
 
 const Dialogs = (props) => {
-    let dialogsElement = props.dialogs.map(dialog => <Dialog text={dialog.name} id={dialog.id} />);
-    let messagesElement = props.messages.map(message => <Message text={message.text} />)
+    let dialogsElement = props.dialogs.map(dialog => <Dialog text={dialog.name} id={dialog.id} key={dialog.id} />);
+    let messagesElement = props.messages.map(message => <Message text={message.text} key={message.id} />)
 
     return (
         <div className={css.block}>
