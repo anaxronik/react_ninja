@@ -32,6 +32,7 @@
 .dialog {
   padding: 10px;
   border-radius: 5px 0 0 5px;
+  margin-bottom: 3px;
 }
 
 .dialog:hover {
