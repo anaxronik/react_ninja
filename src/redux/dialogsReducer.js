@@ -40,8 +40,8 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
     let stateCopy = {
         ...state,
-        // messages: [...state.messages],
         // dialogs: [...state.dialogs],
+        // messages: [...state.messages],
     }
     switch (action.type) {
         default:
