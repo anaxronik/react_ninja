@@ -1,0 +1,30 @@
+.userBlock{
+    background-color: #fff;
+    margin-bottom:  20px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    
+}
+
+.leftBlock {
+    display: block;
+    flex-grow: 1;
+}
+.centerBlock{
+    flex-grow: 6;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.rightBlock {
+    display: block;
+    padding: 20px;
+    width: 150px;
+}
+.avatar{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
