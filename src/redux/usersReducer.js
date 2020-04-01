@@ -46,7 +46,7 @@ const usersReducer = (state = initialState, action) => {
                     }
                 })
             }
-            break
+            return stateCopy
         }
 
         case UNFOLLOW: {
@@ -62,7 +62,7 @@ const usersReducer = (state = initialState, action) => {
                     }
                 })
             }
-            break
+            return stateCopy
         }
         case SET_USERS: {
             let stateCopy = {
@@ -70,7 +70,6 @@ const usersReducer = (state = initialState, action) => {
                 users: action.users
             }
             return stateCopy
-            break
         }
         default:
             return state

@@ -7,24 +7,13 @@
     
 }
 
-.leftBlock {
-    display: block;
-    flex-grow: 1;
-}
-.centerBlock{
-    flex-grow: 6;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.rightBlock {
-    display: block;
-    padding: 20px;
-    width: 150px;
-}
 .avatar{
     height: 100px;
     width: 100px;
     border-radius: 50%;
     margin-bottom: 20px;
+}
+
+.info{
+margin-left: 20px;
 }
