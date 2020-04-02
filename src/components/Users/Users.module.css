@@ -17,3 +17,33 @@
 .info{
 margin-left: 20px;
 }
+
+.pageButtonBlock{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  justify-content: center;
+}
+
+.pageButton{
+    margin: 5px;
+    width: 30px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageButton:hover{
+    color: #fff;
+    background-color: #3f4257;
+}
+
+.selectedPage{
+    color: red;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: 2px solid #3f4257;
+}
