@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import userPhoto from '../../assets/images/userPhoto.png'
 import Axios from 'axios'
 import css from './Users.module.css';
+import { NavLink } from 'react-router-dom'
 
 
 export default class Users extends Component {
@@ -59,18 +60,16 @@ export default class Users extends Component {
                 )}
 
             </div>
-            {
-                this.props.users.map(user =>
-                    <div key={user.id} className={css.userBlock}>
-                        <div><img src={userPhoto} alt="avatar" className={css.avatar} /></div>
-                        <div className={css.info}>
-                            <div><h4>{user.name}</h4></div>
-                            <div>{user.id}</div>
-                            <div>{user.status}</div>
-                        </div>
+            {this.props.users.map(user =>
+                <div key={user.id} className={css.userBlock}>
+                    <NavLink to={`/profile/${user.id}`}><img src={userPhoto} alt="avatar" className={css.avatar} /></NavLink>
+                    <div className={css.info}>
+                        <NavLink to={`/profile/${user.id}`}><h4>{user.name}</h4></NavLink>
+                        <div>{user.id}</div>
+                        <div>{user.status}</div>
                     </div>
-                )
-            }
+                </div>
+            )}
         </div >
     }
 }
