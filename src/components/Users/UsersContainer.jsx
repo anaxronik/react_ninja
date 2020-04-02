@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Users from './Users';
-import { followAC, unfollowAC, setUsersAC, setCurentPageAC, setTotalUsersCountAC } from '../../redux/usersReducer';
+import { follow, unfollow, setUsers, setCurentPage, setTotalUsersCount } from '../../redux/usersReducer';
 
 
 const mapStateToProps = (state) => {
@@ -12,26 +12,13 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        followedButtonAction: (userId) => {
-            console.log('followedButtonAction: (', userId);
-            dispatch(unfollowAC(userId))
-        },
-        unfollowedButtonAction: (userId) => {
-            console.log('unfollowedButtonAction: (', userId);
-            dispatch(followAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        },
-        setTotalUsersCount: (totalUsersCount) => {
-            dispatch(setTotalUsersCountAC(totalUsersCount))
-        },
-        setCurentPage: (curentPage) => {
-            dispatch(setCurentPageAC(curentPage))
-        },
-    }
+
+const mapDispatchToProps = {
+    follow,
+    unfollow,
+    setUsers,
+    setTotalUsersCount,
+    setCurentPage,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users)

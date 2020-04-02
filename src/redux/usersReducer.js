@@ -5,31 +5,7 @@ const SET_CURENT_PAGE = 'SET-CURENT-PAGE '
 const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT '
 
 let initialState = {
-    users:
-        [
-            {
-                id: 1,
-                name: 'Sergey',
-                avatarUrl: 'https://prisnilos.su/uploads/image/sergey.jpg',
-                followed: true,
-                status: 'I am boss',
-                location: {
-                    country: 'Russia',
-                    town: 'Ekaterinburg',
-                },
-            },
-            {
-                id: 2,
-                name: 'Anna',
-                avatarUrl: 'https://prisnilos.su/uploads/image/sergey.jpg',
-                followed: false,
-                status: 'I am princess',
-                location: {
-                    country: 'Belarusia',
-                    town: 'Minsk',
-                },
-            },
-        ],
+    users: [],
     pageSize: 10,
     totalUsersCount: 1,
     curentPage: 1,
@@ -39,8 +15,6 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case FOLLOW: {
-            console.log('FOLLOW');
-
             let stateCopy = {
                 ...state,
                 users: state.users.map((user) => {
@@ -55,8 +29,6 @@ const usersReducer = (state = initialState, action) => {
         }
 
         case UNFOLLOW: {
-            console.log('UNFOLLOW');
-
             let stateCopy = {
                 ...state,
                 users: state.users.map((user) => {
@@ -92,13 +64,12 @@ const usersReducer = (state = initialState, action) => {
         }
         default:
             return state
-
     }
 }
 export default usersReducer
 
-export const followAC = (userId) => ({ type: FOLLOW, userId: userId, })
-export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId: userId, })
-export const setUsersAC = (users) => ({ type: SET_USERS, users: users })
-export const setCurentPageAC = (curentPage) => ({ type: SET_CURENT_PAGE, curentPage: curentPage })
-export const setTotalUsersCountAC = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount: totalUsersCount })
+export const follow = (userId) => ({ type: FOLLOW, userId: userId, })
+export const unfollow = (userId) => ({ type: UNFOLLOW, userId: userId, })
+export const setUsers = (users) => ({ type: SET_USERS, users: users })
+export const setCurentPage = (curentPage) => ({ type: SET_CURENT_PAGE, curentPage: curentPage })
+export const setTotalUsersCount = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount: totalUsersCount })
