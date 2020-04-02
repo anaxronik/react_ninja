@@ -27,7 +27,7 @@ export default class Users extends Component {
             })
     }
 
-    render() {
+    generatePagesArray = () => {
         let totalPagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
         let pages = []
         for (let i = 1; i < totalPagesCount; i++) {
@@ -43,6 +43,11 @@ export default class Users extends Component {
         if (this.props.curentPage > pageCount) {
             pages.unshift(1)
         }
+        return pages
+    }
+
+    render() {
+        const pages = this.generatePagesArray()
 
         return <div>
             <div className={css.pageButtonBlock}>
@@ -66,8 +71,6 @@ export default class Users extends Component {
                     </div>
                 )
             }
-
         </div >
-
     }
 }
