@@ -62,7 +62,13 @@ export default class Users extends Component {
             </div>
             {this.props.users.map(user =>
                 <div key={user.id} className={css.userBlock}>
-                    <NavLink to={`/profile/${user.id}`}><img src={userPhoto} alt="avatar" className={css.avatar} /></NavLink>
+                    <NavLink to={`/profile/${user.id}`}>
+                        <img
+                            src={(!user.photos.small) ? userPhoto : `${user.photos.small}`}
+                            alt="avatar"
+                            className={css.avatar}
+                        />
+                    </NavLink>
                     <div className={css.info}>
                         <NavLink to={`/profile/${user.id}`}><h4>{user.name}</h4></NavLink>
                         <div>{user.id}</div>
