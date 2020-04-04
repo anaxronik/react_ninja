@@ -9,7 +9,6 @@ import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
-import Profile from './components/Profile/Profile';
 
 
 function App(props) {
@@ -19,13 +18,8 @@ function App(props) {
         <Header />
         <Navbar />
         <Route
-          path='/profile'
+          path='/profile/:userId?'
           render={() => (<ProfileContainer />)}
-        />
-        <Route
-          path='/profile'
-          render={() => (<Profile store={props.store} />)}
-          exact
         />
         <Route
           path='/dialogs'
