@@ -3,18 +3,28 @@ import css from './Profile.module.css';
 import PostsContainer from './Posts/PostsContainer';
 import NewPostContainer from './NewPost/NewPostContainer';
 
-const ProfileInfo = () => {
+
+const ProfileInfo = (props) => {
     return (
         <div className={css.info}>
-            <div>
-                <img className={css.avatar} src="https://static.mk.ru/upload/entities/2019/05/08/00/articles/detailPicture/c7/b5/08/6e/5dda626cb409b1fa6942c29040609e17.jpg" alt="" />
-            </div>
+            <div><img src={props.profile.photos.small} alt="avatar" className={css.avatar} /></div>
             <div className={css.info_block}>
-                <div>Dmitriy K</div>
-                <div>Date of Birth</div>
-                <div>City</div>
-                <div>Education</div>
-                <div>web site</div>
+                <div>Name: {props.profile.fullName}</div>
+                <div>aboutMe: {props.profile.aboutMe}</div>
+                <div>userId: {props.profile.userId}</div>
+                <div>lookingForAJob: {props.profile.lookingForAJob ? 'Yes' : 'No'}</div>
+                <div>lookingForAJobDescription: {props.profile.lookingForAJobDescription}</div>
+                <div>small: {props.profile.photos.small}</div>
+                <div>
+                    <div>facebook: {props.profile.contacts.facebook}</div>
+                    <div>website: {props.profile.contacts.website}</div>
+                    <div>vk: {props.profile.contacts.vk}</div>
+                    <div>twitter: {props.profile.contacts.twitter}</div>
+                    <div>instagram: {props.profile.contacts.instagram}</div>
+                    <div>youtube: {props.profile.contacts.youtube}</div>
+                    <div>github: {props.profile.contacts.github}</div>
+                    <div>mainLink: {props.profile.contacts.mainLink}</div>
+                </div>
             </div>
         </div>
     );
@@ -22,12 +32,12 @@ const ProfileInfo = () => {
 
 
 const Profile = (props) => {
+    if (!props.profile) {
+        console.log('Props empty')
+    }
     return (
         <div className={css.block}>
-            <div>
-                <img className={css.bigimg} src="https://pix10.agoda.net/hotelImages/5647641/-1/45ee96c8c2b177ffcd99818b6b6387f0.jpg?s=1024x768" alt="" />
-            </div>
-            <ProfileInfo />
+            <ProfileInfo profile={props.profile} />
             <NewPostContainer />
             <PostsContainer />
         </div >
