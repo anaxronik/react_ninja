@@ -14,8 +14,9 @@ let initialState = {
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
+
         case FOLLOW: {
-            let stateCopy = {
+            return {
                 ...state,
                 users: state.users.map((user) => {
                     if (user.id === action.userId) {
@@ -25,11 +26,10 @@ const usersReducer = (state = initialState, action) => {
                     }
                 })
             }
-            return stateCopy
         }
 
         case UNFOLLOW: {
-            let stateCopy = {
+            return {
                 ...state,
                 users: state.users.map((user) => {
                     if (user.id === action.userId) {
@@ -39,29 +39,29 @@ const usersReducer = (state = initialState, action) => {
                     }
                 })
             }
-            return stateCopy
         }
+
         case SET_USERS: {
-            let stateCopy = {
+            return {
                 ...state,
                 users: action.users
             }
-            return stateCopy
         }
+
         case SET_CURENT_PAGE: {
-            let stateCopy = {
+            return {
                 ...state,
                 curentPage: action.curentPage
             }
-            return stateCopy
         }
+
         case SET_TOTAL_USERS_COUNT: {
-            let stateCopy = {
+            return {
                 ...state,
                 totalUsersCount: action.totalUsersCount
             }
-            return stateCopy
         }
+
         default:
             return state
     }
