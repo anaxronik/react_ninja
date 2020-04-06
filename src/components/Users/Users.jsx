@@ -11,6 +11,10 @@ export default class Users extends Component {
         this.getUsers()
     }
 
+    componentDidUpdate() {
+        this.getUsers()
+    }
+
     getUsers = () => {
         getUsersFromServer(this.props.curentPage, this.props.pageSize)
             .then(data => {
