@@ -3,6 +3,7 @@ import userPhoto from '../../assets/images/userPhoto.png'
 import Axios from 'axios'
 import css from './Users.module.css';
 import { NavLink } from 'react-router-dom'
+import { apiKey, apiUrl } from '../../config/default'
 
 
 export default class Users extends Component {
@@ -12,7 +13,10 @@ export default class Users extends Component {
     }
 
     getUsers = () => {
-        Axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.curentPage}&count=${this.props.pageSize}`)
+        Axios.get(
+            `${apiUrl}/users?page=${this.props.curentPage}&count=${this.props.pageSize}`,
+            { withCredentials: true }
+        )
             .then(response => {
                 this.props.setUsers(response.data.items)
                 this.props.setTotalUsersCount(response.data.totalCount)
@@ -21,7 +25,10 @@ export default class Users extends Component {
 
     onPageChanged = (pageNum) => {
         this.props.setCurentPage(pageNum)
-        Axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNum}&count=${this.props.pageSize}`)
+        Axios.get(
+            `${apiUrl}/users?page=${pageNum}&count=${this.props.pageSize}`,
+            { withCredentials: true }
+        )
             .then(response => {
                 this.props.setUsers(response.data.items)
                 this.props.setTotalUsersCount(response.data.totalCount)
@@ -60,22 +67,63 @@ export default class Users extends Component {
                 )}
 
             </div>
-            {this.props.users.map(user =>
-                <div key={user.id} className={css.userBlock}>
-                    <NavLink to={`/profile/${user.id}`}>
-                        <img
-                            src={(!user.photos.small) ? userPhoto : `${user.photos.small}`}
-                            alt="avatar"
-                            className={css.avatar}
-                        />
-                    </NavLink>
-                    <div className={css.info}>
-                        <NavLink to={`/profile/${user.id}`}><h4>{user.name}</h4></NavLink>
-                        <div>{user.id}</div>
-                        <div>{user.status}</div>
-                    </div>
-                </div>
-            )}
+            {
+                this.props.users.map(
+                    user =>
+                        <div key={user.id} className={css.userBlock}>
+                            <div>
+                                <NavLink to={`/profile/${user.id}`}>
+                                    <img
+                                        src={(!user.photos.small) ? userPhoto : `${user.photos.small}`}
+                                        alt="avatar"
+                                        className={css.avatar}
+                                    />
+                                </NavLink>
+                                <div>
+                                    {(user.followed)
+
+                                        ? <button onClick={() => {
+                                            Axios.delete(
+                                                `${apiUrl}/follow/${user.id}`,
+                                                {
+                                                    withCredentials: true,
+                                                    headers: { 'API-KEY': apiKey }
+                                                }
+                                            )
+                                                .then(response => {
+                                                    if (response.data.resultCode === 0) {
+                                                        this.props.unfollow(user.id)
+                                                    }
+                                                })
+                                        }}>Отписаться</button>
+
+                                        : <button onClick={() => {
+                                            Axios.post(
+                                                `${apiUrl}/follow/${user.id}`,
+                                                {},
+                                                {
+                                                    withCredentials: true,
+                                                    headers: { 'API-KEY': apiKey }
+                                                }
+                                            )
+                                                .then(response => {
+                                                    if (response.data.resultCode === 0) {
+                                                        this.props.follow(user.id)
+                                                    }
+                                                })
+                                        }}>Подписаться</button>
+                                    }
+                                </div>
+
+                            </div>
+                            <div className={css.info}>
+                                <NavLink to={`/profile/${user.id}`}><h4>{user.name}</h4></NavLink>
+                                <div>{user.id}</div>
+                                <div>{user.status}</div>
+                            </div>
+                        </div>
+                )
+            }
         </div >
     }
 }
