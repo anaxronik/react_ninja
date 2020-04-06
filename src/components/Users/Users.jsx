@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import userPhoto from '../../assets/images/userPhoto.png'
-import Axios from 'axios'
 import css from './Users.module.css';
 import { NavLink } from 'react-router-dom'
-import { apiKey, apiUrl } from '../../config/default'
+import { getUsersFromServer, followToUser, unfollowFromUser } from '../../api/api';
 
 
 export default class Users extends Component {
@@ -13,25 +12,18 @@ export default class Users extends Component {
     }
 
     getUsers = () => {
-        Axios.get(
-            `${apiUrl}/users?page=${this.props.curentPage}&count=${this.props.pageSize}`,
-            { withCredentials: true }
-        )
-            .then(response => {
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
+        getUsersFromServer(this.props.curentPage, this.props.pageSize)
+            .then(data => {
+                this.props.setUsers(data.items)
+                this.props.setTotalUsersCount(data.totalCount)
             })
     }
 
     onPageChanged = (pageNum) => {
-        this.props.setCurentPage(pageNum)
-        Axios.get(
-            `${apiUrl}/users?page=${pageNum}&count=${this.props.pageSize}`,
-            { withCredentials: true }
-        )
-            .then(response => {
-                this.props.setUsers(response.data.items)
-                this.props.setTotalUsersCount(response.data.totalCount)
+        getUsersFromServer(pageNum, this.props.pageSize)
+            .then(data => {
+                this.props.setUsers(data.items)
+                this.props.setTotalUsersCount(data.totalCount)
             })
     }
 
@@ -52,6 +44,24 @@ export default class Users extends Component {
             pages.unshift(1)
         }
         return pages
+    }
+
+    followButtonClick = (userId) => {
+        followToUser(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    this.props.follow(userId)
+                }
+            })
+    }
+
+    unfollowButtonClick = (userId) => {
+        unfollowFromUser(userId)
+            .then(data => {
+                if (data.resultCode === 0) {
+                    this.props.unfollow(userId)
+                }
+            })
     }
 
     render() {
@@ -80,41 +90,11 @@ export default class Users extends Component {
                                     />
                                 </NavLink>
                                 <div>
-                                    {(user.followed)
-
-                                        ? <button onClick={() => {
-                                            Axios.delete(
-                                                `${apiUrl}/follow/${user.id}`,
-                                                {
-                                                    withCredentials: true,
-                                                    headers: { 'API-KEY': apiKey }
-                                                }
-                                            )
-                                                .then(response => {
-                                                    if (response.data.resultCode === 0) {
-                                                        this.props.unfollow(user.id)
-                                                    }
-                                                })
-                                        }}>Отписаться</button>
-
-                                        : <button onClick={() => {
-                                            Axios.post(
-                                                `${apiUrl}/follow/${user.id}`,
-                                                {},
-                                                {
-                                                    withCredentials: true,
-                                                    headers: { 'API-KEY': apiKey }
-                                                }
-                                            )
-                                                .then(response => {
-                                                    if (response.data.resultCode === 0) {
-                                                        this.props.follow(user.id)
-                                                    }
-                                                })
-                                        }}>Подписаться</button>
+                                    {user.followed
+                                        ? <button onClick={() => { this.unfollowButtonClick(user.id) }}>Отписаться</button>
+                                        : <button onClick={() => { this.followButtonClick(user.id) }}>Подписаться</button>
                                     }
                                 </div>
-
                             </div>
                             <div className={css.info}>
                                 <NavLink to={`/profile/${user.id}`}><h4>{user.name}</h4></NavLink>
