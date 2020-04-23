@@ -18,3 +18,8 @@
 .likesCount{
     margin-top: 20px;
 }
+
+.likeButtonBlock{
+    float: right;
+
+}

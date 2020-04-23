@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     return (
-        <nav className={css.nav}>
-            <NavLink to="/profile" className={`${css.item}`} activeClassName={css.active}>
+        <nav className={css.navBlock}>
+            <NavLink to="/profile" className={css.item} activeClassName={css.active}>
                 Профиль
-            </NavLink >
+            </NavLink>
             <NavLink to="/dialogs" className={css.item} activeClassName={css.active}>
                 Сообщения
             </NavLink>
@@ -21,7 +21,7 @@ const Navbar = () => {
                 Настройки
             </NavLink>
             <NavLink to="/users" className={css.item} activeClassName={css.active}>
-                Юзеры
+                Пользователи
             </NavLink>
         </nav >
     )

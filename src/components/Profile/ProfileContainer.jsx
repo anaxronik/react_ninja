@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Profile from './Profile'
+import Profile from './ProfilePage'
 import Axios from 'axios'
 import { connect } from 'react-redux'
 import { setUserProfile } from '../../redux/profileReducer'

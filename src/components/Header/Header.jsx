@@ -1,17 +1,18 @@
 import React from 'react';
 import css from './Header.module.css'
 import { NavLink } from 'react-router-dom';
+import logo from '../../assets/images/logo.png'
+import Button from '@material-ui/core/Button';
 
 const Header = (props) => {
     return (
         <header className={css.header}>
-            <img
-                className={css.logo}
-                src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Wikinews-logo.png"
-                alt=""
-            />
+            <img src={logo} alt="Logo" className={css.logo} />
+
             <div className={css.loginBlock}>
-                {props.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink>}
+                {props.isAuth
+                    ? < Button variant="contained" color="primary">{props.login}</Button>
+                    : <NavLink to={'/login'}><Button variant="contained">Default</Button></NavLink>}
             </div>
         </header>
     )

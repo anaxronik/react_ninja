@@ -1,37 +1,11 @@
-.block {
-    grid-area: main;
+.profileBlock{
+display: flex;
 }
 
-.bigimg {
-    height: 200px;
-    width: 100%;
-}
-
-.avatar {
-    width: 100px;
-    height: 100px;
+.avatar{
     border-radius: 50%;
 }
 
-.info {
-    display: flex;
-}
-
-.info {
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.avatar {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-}
-
-.info_block {
-    margin-left: 20px;
+.info{
+    margin-left: 10px;
 }

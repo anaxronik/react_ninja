@@ -1,29 +1,20 @@
-.nav {
-    grid-area: nav;
-    background: #fff;
-    padding: 20px 0 20px 20px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
+.navBlock{
+   display: flex;
+   flex-direction: column;
 }
 
-.item {
-    color: black;
+.item{
+    margin-bottom: 3px;
     padding: 10px;
-    border-radius: 5px 0 0 5px;
-    margin-bottom: 5px;
+    border-radius: 5px;
 }
 
-.item:hover {
+.item:hover{
     background-color: #EDF2F6;
-    color: black;
-    margin-right: 0px;
+    color: #000;
 }
 
-.active {
-    background-color: #EDF2F6;
-    color: black;
-    text-align: right;
-    font-weight: bold;
-    padding-right: 0px;
+.active{
+    background-color: #1976D2;
+    color: #fff;
 }

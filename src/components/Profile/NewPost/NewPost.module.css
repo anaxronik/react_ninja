@@ -1,31 +1,8 @@
-.block {
-    background-color: #fff;
-    padding: 20px;
+.newPostBlock{
     display: flex;
     flex-direction: column;
 }
 
-.textarea {
-    background-color: #edf2f6;
-    width: 95%;
-    height: 50px;
-    border: 0;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.button {
-    padding: 10px;
-    width: 100px;
-    align-content: right;
-    background-color: #3F4257;
-    border-radius: 5px;
-    border: 0;
-    margin-top: 20px;
-    color: white;
-}
-
-.button:hover {
-    background-color: red;
-    color: black;
+.newPostBlock > div{
+    margin-bottom: 10px;
 }
